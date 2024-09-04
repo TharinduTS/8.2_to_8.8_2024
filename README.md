@@ -188,6 +188,19 @@ writeLines(unmarked_selected_sequence,paste('./unmarked_sequence_files/',saving_
 locations_left<-subset(locations_left,locations_left>extract_end)
 
 }
+
+full_sample_sequence<-my_seq_df_with_loc$F_Ghana_WZ_BJE4687_combined__sorted.bam
+
+full_sequence<-paste(extracted_sequence,collapse = '')
+
+# remove markings for pure sequence
+
+unmarked_full_sequence<-stringr::str_replace_all(full_sequence, '\\*', '')
+unmarked_full_sequence<-stringr::str_replace_all(unmarked_full_sequence, '\\(', '')
+unmarked_full_sequence<-stringr::str_replace_all(unmarked_full_sequence, '\\)', '')
+
+writeLines(unmarked_full_sequence,"./full_sequence_of_selected_sample")
+
 ```
 
 
