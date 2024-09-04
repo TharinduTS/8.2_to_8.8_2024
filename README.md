@@ -47,7 +47,7 @@ This extract the regions with male or female fixed regions and saves marked and 
 ```R
 library("rstudioapi") 
 setwd(dirname(getActiveDocumentContext()$path))
-
+library(seqinr)
 
 #************************************
 
@@ -200,6 +200,7 @@ unmarked_full_sequence<-stringr::str_replace_all(unmarked_full_sequence, '\\(', 
 unmarked_full_sequence<-stringr::str_replace_all(unmarked_full_sequence, '\\)', '')
 
 writeLines(unmarked_full_sequence,"./full_sequence_of_selected_sample")
+
 
 ```
 
