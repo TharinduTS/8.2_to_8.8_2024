@@ -37,6 +37,16 @@ Combined all fastas
 ```
 cat *.fasta >8.2_to_8.8mb_combined_fasta.fa
 ```
+Then copied it into a different directory to blast and blasted it
+```
+module load StdEnv/2023  gcc/12.3 blast+/2.14.1
+makeblastdb -in ../../new_project_Apr_2023/new_data_Jun23/reference_genome/XENTR_10.0_genome_scafconcat_goodnamez.fasta -title reference -dbtype nucl -out ref.fa
+blastn -db ./reference/ref.fa -query full_sequence_of_selected_sample  -outfmt "6 qstart qend sstart  send length qseq sseq " | sort -k1,1 -k12,12nr -k11,11n | sort -u -k1,1 --merge > best_single_hits.blastn
+
+```
+
+#********************************************************
+
 Aligned with MAFFT
 ```
 module load StdEnv/2020  gcc/9.3.0  openmpi/4.0.3 mafft-mpi/7.471
