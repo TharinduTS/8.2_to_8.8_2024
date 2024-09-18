@@ -41,7 +41,7 @@ cat *.fasta >8.2_to_8.8mb_combined_fasta.fa
 Aligned with MAFFT
 ```
 module load StdEnv/2020  gcc/9.3.0  openmpi/4.0.3 mafft-mpi/7.471
-mafft --auto 8.2_to_8.8mb_combined_fasta.fa > Nucleotide alignment.fasta
+mafft --auto 8.2_to_8.8mb_combined_fasta.fa > Nucleotide_alignment.fasta
 ```
 Then I downloaded the fasta file and analysed it with following R script
 This extract the regions with male or female fixed regions and saves marked and unmarked text files
@@ -57,7 +57,7 @@ library(RFLPtools)
 
 
 
-my_fasta<-read.fasta("Nucleotide alignment.fasta")
+my_fasta<-read.fasta("Nucleotide_alignment.fasta")
 my_seq_df<-as.data.frame(my_fasta)
 
 #Drop any rows with 'n' in any sample
